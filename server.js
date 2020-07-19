@@ -788,6 +788,42 @@ const HN7_Run_fap=function( sob ){ "use strict"
    
 };;
 
+const HN8_Chk_dat_wha=function( sob ){ "use strict" 
+
+    if((!sob.dat)&&(!sob.wha)){
+
+        throw("[[HN8_E01]:DAT_AND_WHA]");
+
+    }else
+    if((!sob.dat)&&( sob.wha)){
+
+        throw("[[HN8_E02]:NOT_SOB_DAT]");
+
+    }else
+    if(( sob.dat)&&(!sob.what)){
+    
+        //:**************************************************://
+        //:  This error means that you have an entry like    ://
+        //:  the following in HN2_Rou's [ tab_daw ] table.   ://
+        /**-************************************************-***
+
+        "/ROUTE_PATH":[ "FILEPATH_OR_OTHER_DATA"     ]
+
+        When you should have:
+
+        "/ROUTE_PATH":[ "FILEPATH_OR_OTHER_DATA" , "WHATEVER" ]
+
+        ***-************************************************-**/
+
+        throw("[[HN8_E03]:NOT_SOB_WHA]");
+
+    }else
+        {
+        throw("[[HN8_E04]:EDCL]");
+        }
+
+};;
+
 //://////////////////////////////////////////////////////////://
 //:                                                          ://
 //: main request routing function.                           ://
@@ -903,6 +939,8 @@ const HN2_Rou=function( req , res ){ "use strict"
         daw=( tab_daw[ sob.url ] || tab_daw[ "/K" ] );
     sob.dat=( daw[ 0 ] );
     sob.wha=( daw[ 1 ] );
+
+    HN8_Chk_dat_wha( sob ); //:Error_Check
 
     //: act: Action to take function.
     sob.act=( tab_act[ sob.wha ] );
