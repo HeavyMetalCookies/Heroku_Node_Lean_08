@@ -2,18 +2,75 @@
 
 //:Change title of page
 
+    document.title=("[JIV]");
 
+//:Declare file scope variables:
+
+    var pib_nam=null; //:Parameter_Input_Box  : NAME
+    var piv_nam=null; //:Parameter_Input_Value: NAME
 
 //:Get document body
-
-
+    var nat_bod =( document.body );
+    if(!nat_bod){
+        nat_bod = document.createElement("BODY");
+        document.body=( nat_bod );  
+    };;
+    var doc_bod=$( nat_bod );
 
 //:add function to call rest service
 
+    if( ! API_Get_004 ){
+        throw("[MUST_INCLUDE:JSL/API_Get_004]");
+    };;
 
 
 //:add ui coupled function to call rest service
 
+    const Ind_Lin=function( msg ){
+        var tab=(" ".repeat( 4 * 2 ) );
+        msg = msg.split("\n").join( "\n" + tab );
+        msg = tab + msg;
+        return( msg );
+    };;
 
+    //:TODO: Re-work this function to display PNG file 
+    //:      contents.
+    const API_Get_Exa_CBF=function( r_t ){
+        var msg=(""
+        +   "[API_Get_Exa_CBF:r_t]"
+        +   "<<<"
+        +   "\n"
+        +    Ind_Lin( r_t )
+        +   ">>>"
+        );;
+        alert( msg );
+    };;
+    const API_Get_Mai=function(){
+
+        piv_nam=( pib_nam.val() || "DEFAULT_NAME" );
+        
+        var cbf=( API_Get_Exa_CBF );
+        API_Get_004( 
+            "TAB_001_UPDATE" 
+        ,   {
+                nam: piv_nam
+            }
+        ,   cbf
+        ,   "R_T" 
+        );;
+
+    };;
 
 //:generate ui controls
+
+    var I =("<input>");
+    var T =("text"   );
+    doc_bod.append(
+        $("<button>")
+            .text( "TEST" )
+            .click( API_Get_Mai )
+        
+    ,   (pib_nam =( $(I).attr({type:T,placeholder:"nam"}) ) )
+
+    );;
+

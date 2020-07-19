@@ -1,0 +1,10 @@
+All files in this folder should:
+
+    1. Contain only 1 function and nothing else.
+
+    2. Have a file name that contains an exact match
+       of the function name it contains.
+
+        EXAMPLE: 
+            FILE: API_GET_004._
+            FUNC: API_GET_004

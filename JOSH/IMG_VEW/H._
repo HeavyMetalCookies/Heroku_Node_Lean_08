@@ -17,6 +17,12 @@
         charset="UTF-8"
     ></script>
 
+    <!-- API_Get_004: Re-usable-api-caller -->
+    <script 
+        src    ="/API_Get_004" 
+        charset="UTF-8"
+    ></script>
+
     <!-- JIV: Josh_Image_View -->
     <script 
         src    ="/JIV.JS" 

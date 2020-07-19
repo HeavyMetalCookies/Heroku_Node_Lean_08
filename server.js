@@ -847,9 +847,10 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/TAB_001_UPDATE"
         :[ "./SQL/TAB_001_UPDATE._" , "HN7_Run_fap" ]
 
-    ,   "/JOSH_VIEW":[ "./JOSH/IMG_VEW/H._" , "HT" ]
-    ,   "/JIV.HT"   :[ "./JOSH/IMG_VEW/H._" , "HT" ]
-    ,   "/JIV.JS"   :[ "./JOSH/IMG_VEW/J._" , "JS" ]
+    ,   "/JOSH_VIEW"  :[ "./JOSH/IMG_VEW/H._" , "HT" ]
+    ,   "/JIV.HT"     :[ "./JOSH/IMG_VEW/H._" , "HT" ]
+    ,   "/JIV.JS"     :[ "./JOSH/IMG_VEW/J._" , "JS" ]
+    ,   "/API_Get_004":[ "./LIB_JFN/API_Get_004"     ]
 
         //:M:Matching. Routes matching their served files.   ://
         //:-:This is so we can run files locally or on server://
