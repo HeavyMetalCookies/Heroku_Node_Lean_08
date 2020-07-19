@@ -790,6 +790,9 @@ const HN7_Run_fap=function( sob ){ "use strict"
 
 const HN8_Chk_dat_wha=function( sob ){ "use strict" 
 
+    if(( sob.dat)&&( sob.wha)){
+        //:Do_Nothing_Both_Objects_Exist
+    }else
     if((!sob.dat)&&(!sob.wha)){
 
         throw("[[HN8_E01]:DAT_AND_WHA]");
