@@ -800,7 +800,7 @@ const HN8_Chk_dat_wha=function( sob ){ "use strict"
         throw("[[HN8_E02]:NOT_SOB_DAT]");
 
     }else
-    if(( sob.dat)&&(!sob.what)){
+    if(( sob.dat)&&(!sob.wha)){
     
         //:**************************************************://
         //:  This error means that you have an entry like    ://
