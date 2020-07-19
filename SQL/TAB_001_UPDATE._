@@ -1,0 +1,8 @@
+INSERT INTO tab_001(iid,i_x,i_y,nam,url)
+VALUES( 
+    DEFAULT
+,   {{i_x}}
+,   {{i_y}}
+,   {{nam}}
+,   {{url}}
+);;
