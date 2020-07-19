@@ -1,0 +1,26 @@
+<!DOCTYPE HTML><head><title> //://///////////////////////////://
+//://////////////////////////////////////////////////////////://
+
+    "H._" is for "HTML"
+
+//://////////////////////////////////////////////////://</title>
+
+    <!-- JQ: Query -->
+    <script 
+        src    ="/JQ"
+        charset="UTF-8"
+    ></script>
+
+    <!-- WHO_AMI: Used to wire up api calls -->
+    <script 
+        src    ="/WHO_AMI" 
+        charset="UTF-8"
+    ></script>
+
+    <!-- JIV: Josh_Image_View -->
+    <script 
+        src    ="/JIV.JS" 
+        charset="UTF-8"
+    ></script>
+
+</head> <!-- /////////////////////////////////////////////// -->
