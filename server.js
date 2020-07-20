@@ -880,9 +880,12 @@ const HN8_Run_fap_Ret_jso=function( sob ){ "use strict"
             };;
 
         }).catch((err)=>{
+            //:If inside here either:
+            //: 1: HN3_Run_cof  FAILED
+            //: 2: Returning Json response failed.
 
             var str_err=( HN5_err_CTO_str( err ) );
-            HN5_Wri_002(sob,"[HN7_E02]:" + str_err );
+            HN5_Wri_002(sob,"[HN8_ERR:RUN_OR_RET]:" + str_err );
             HN5_End_001( sob );
         });;
 
