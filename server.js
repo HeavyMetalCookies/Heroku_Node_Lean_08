@@ -1000,7 +1000,7 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
     var rfn    =("" ); //:rfn:(Routed|Real)Folder_Name
     var arr    =[   ]; //:array
 
-    arr=( sob.url.split("/")[ 0 ] );
+    arr=( sob.url.split("/") );
     arr=arr.filter( (wor)=>{ return(!!wor); } );
     ffn=( arr[ 0 ] );
 
