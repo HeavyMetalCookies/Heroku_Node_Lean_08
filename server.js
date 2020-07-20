@@ -923,9 +923,9 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/API_Get_004":[ "./LIB_JFN/API_Get_004" , "JS" ]
 
         //:View as plain text:
-    ,   "/TX/JOSH_VIEW/"  :[ "./JOSH/IMG_VEW/H._"    , "TX" ]
-    ,   "/TX/JIV.HT/"     :[ "./JOSH/IMG_VEW/H._"    , "TX" ]
-    ,   "/TX/JIV.JS/"     :[ "./JOSH/IMG_VEW/J._"    , "TX" ]
+    ,   "/TX/JOSH_VIEW"   :[ "./JOSH/IMG_VEW/H._"    , "TX" ]
+    ,   "/TX/JIV.HT"      :[ "./JOSH/IMG_VEW/H._"    , "TX" ]
+    ,   "/TX/JIV.JS"      :[ "./JOSH/IMG_VEW/J._"    , "TX" ]
     ,   "/TX/API_Get_004" :[ "./LIB_JFN/API_Get_004" , "TX" ]
 
         //:M:Matching. Routes matching their served files.   ://
