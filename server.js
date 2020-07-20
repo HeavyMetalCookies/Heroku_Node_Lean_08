@@ -954,30 +954,10 @@ const HN8_Chk_dat_wha=function( sob ){ "use strict"
 
 };;
 
-//://////////////////////////////////////////////////////////://
-//:                                                          ://
-//: main request routing function.                           ://
-//:                                                          ://
-//: Routes can be thought of shortcuts that are associated   ://
-//: with a piece of data and an action, in a triplet.        ://
-//:                                                          ://
-//:     ROUTE           : The URL requested by client        ://
-//:     DATA            : Data associated with route         ://
-//:     ACTION|WHATEVER : What to do with the DATA           ://
-//:                                                          ://
-//: Because the last entry of the triplet is an              ://
-//: "ACTION | WHATEVER" we need to resolve the               ://
-//: "ACTION | WHATEVER" string to an ACTION function         ://
-//: to perform using the DATA associated with ROUTE.         ://
-//:                                                          ://
-//:__________________________________________________________://
-const HN2_Rou=function( req , res ){ "use strict"
 
-    //:Declare_And_Summarize_All_Function_Variables:
-    var sob     = HN5_NEW_sob(); //:sob:State_Object
+const HN8_Rou_Pri_001( sob )=function{ "use strict"
+      
     var     daw = null      ; //:selected:Data_and_Whatever 
-           
-
 
     //:rar:Request_And_Response:
     sob.req =( req     ); //:rar[ 0 ]
@@ -999,6 +979,32 @@ const HN2_Rou=function( req , res ){ "use strict"
 
     //:Call action function:
     sob.act( sob );
+
+};;
+
+//://////////////////////////////////////////////////////////://
+//:                                                          ://
+//: main request routing function.                           ://
+//:                                                          ://
+//: Routes can be thought of shortcuts that are associated   ://
+//: with a piece of data and an action, in a triplet.        ://
+//:                                                          ://
+//:     ROUTE           : The URL requested by client        ://
+//:     DATA            : Data associated with route         ://
+//:     ACTION|WHATEVER : What to do with the DATA           ://
+//:                                                          ://
+//: Because the last entry of the triplet is an              ://
+//: "ACTION | WHATEVER" we need to resolve the               ://
+//: "ACTION | WHATEVER" string to an ACTION function         ://
+//: to perform using the DATA associated with ROUTE.         ://
+//:                                                          ://
+//:__________________________________________________________://
+const HN2_Rou=function( req , res ){ "use strict"
+
+    //:Declare_And_Summarize_All_Function_Variables:
+    var sob     = HN5_NEW_sob(); //:sob:State_Object
+
+    HN8_Rou_Pri_001( sob ); //:Priority_01_Routing
 
 };;
 
