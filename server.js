@@ -869,12 +869,15 @@ const HN8_Run_fap_Ret_jso=function( sob ){ "use strict"
             var ros=( sob.ros );
             if( !ros){ throw("[HN8_ERR:NOT_ROS]"); };
 
-            if( ros.rows  && (ros.rows.length > 0 ) ){
+            if( ros.rows  && (ros.rows.length == 1 ) ){
             
                 var mit=( "application/json" ); //:MimeType
                 HN5_Wri_Hea_200(sob, { "Content-Type": mit } );
-                HN5_End_003( sob, ros.rows , "utf-8" );
+                HN5_End_003( sob, ros.rows[0] , "utf-8" );
             
+            }else
+            if( ros.rows && (ros.rows.length > 1 ){
+                HN5_End_002( sob, "[HN8:MORE_THAN_ONE_ROW]" );
             }else{
                 HN5_End_002( sob, "[HN8:NOTHING_TO_RETURN]" );
             };;
