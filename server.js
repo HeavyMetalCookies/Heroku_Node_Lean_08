@@ -874,7 +874,7 @@ const HN8_Run_fap_Ret_jso=function( sob ){ "use strict"
                 var mit=( "application/json" ); //:MimeType
                 HN5_Wri_Hea_200(sob, { "Content-Type": mit } );
 
-                var j_t=( JSON.stringify( ros.rows[0] ) );
+                var j_t=( JSON.stringify( ros.rows[0] ),null,4);
                 HN5_End_003( sob, j_t , "utf-8" );
             
             }else
