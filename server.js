@@ -1029,7 +1029,8 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
         fnp=( nof.split(".") );
         if( fnp.length >= 2 ){
 
-            ext=( fnp[1].toUpperCase() );
+            //:WORONG YOUSJFLSDFJLSJDFLj
+            ext=( fnp[ fnp.length - 1].toUpperCase() );
         }else{
             ext=("[NONE]");
         };;
