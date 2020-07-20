@@ -955,7 +955,7 @@ const HN8_Chk_dat_wha=function( sob ){ "use strict"
 };;
 
 
-const HN8_Rou_Pri_001( sob )=function{ "use strict"
+const HN8_Rou_Pri_001=function( sob ){ "use strict"
       
     var     daw = null      ; //:selected:Data_and_Whatever 
 
