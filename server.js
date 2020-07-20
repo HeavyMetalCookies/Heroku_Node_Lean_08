@@ -557,6 +557,38 @@ const HN1_Ser_Fil =function( sob ){ "use strict"
     });;
 };;
 
+// const HN8_Pri_sob_ASA_ros_jso=function(
+//               sob
+// ){ "use strict"
+// 
+//     var ros = sob.ros;
+// 
+//     if( !ros ){
+//         HN5_Wri_002(sob, "[HN8_ERR:Missing:ros]" );
+//     }else
+//     if( ros.rows  && (ros.rows.length > 0 ) ){
+// 
+//         var mit=( "application/json" ); //:MimeType
+//         HN5_Wri_Hea_200(sob, { "Content-Type": mit } );
+//         HN5_End_003( sob, ros.rows , "utf-8" );
+//    
+//     }else
+//     if( ros.rows && (ros.rows.length <= 0 ) ){
+// 
+//         HN5_Wri_002(sob, "[HN8:EMPTY_ROWS]\n");
+// 
+//     }else
+//     if(!ros.rows ){
+//         
+//         HN5_Wri_002(sob, "[HN8:NO_ROWS_CONTAINER]\n");
+// 
+//     }else{
+//         
+//         HN5_Wri_002(sob, "[EDCL:2020_07_14]");
+// 
+//     };;
+// };;
+
 const HN5_Pri_sob_ASA_cof_ros=function(
               sob
 ){ "use strict"
@@ -807,6 +839,57 @@ const HN7_Run_fap=function( sob ){ "use strict"
    
 };;
 
+const HN8_Run_fap_Ret_jso=function( sob ){ "use strict"
+
+    sob.pof=( sob.dat ); //:path_of_file
+
+    fs.readFile( sob.pof , (err,cof)=>{ //:------------------://
+        if( err ){ 
+            throw("[HN8_ERR:READ_FAIL]:" 
+            + HN5_err_CTO_str( err ) );;
+        };;
+
+        var arr_k_v=( Object.entries( sob.pam ) );
+
+        //:Hackishly_Cast_Contents_Of_File_To_String:
+        cof=(""+cof);
+
+        //:Edit contents_of_file ( cof ) so that it
+        //:is loaded with values from query.
+        for( var k_v of arr_k_v ){
+
+            var tok_fin=( "{{" + k_v[0] + "}}" );
+            var tok_rep=(  HN7_SVF( k_v )  );  
+            cof = cof.split( tok_fin ).join( tok_rep );
+        };;
+
+        sob.cof=( cof );
+        HN3_Run_cof( sob ).then(( sob )=>{
+
+            var ros=( sob.ros );
+            if( !ros){ throw("[HN8_ERR:NOT_ROS]"); };
+
+            if( ros.rows  && (ros.rows.length > 0 ) ){
+            
+                var mit=( "application/json" ); //:MimeType
+                HN5_Wri_Hea_200(sob, { "Content-Type": mit } );
+                HN5_End_003( sob, ros.rows , "utf-8" );
+            
+            }else{
+                HN5_End_002( sob, "[HN8:NOTHING_TO_RETURN]" );
+            };;
+
+        }).catch((err)=>{
+
+            var str_err=( HN5_err_CTO_str( err ) );
+            HN5_Wri_002(sob,"[HN7_E02]:" + str_err );
+            HN5_End_001( sob );
+        });;
+
+    });; //:----------------------------------[ fs.readFile ]://
+   
+};;
+
 const HN8_Chk_dat_wha=function( sob ){ "use strict" 
 
     if(( sob.dat)&&( sob.wha)){
@@ -931,13 +1014,13 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/GET_NBN" :
         [
             "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
-        ,   "HN7_Run_fap"
+        ,   "HN8_Run_fap_Ret_jso"
         ]
 
     ,   "/TAB_001_GET_NBN" :
         [
             "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
-        ,   "HN7_Run_fap"
+        ,   "HN8_Run_fap_Ret_jso"
         ]
 
         //:M:Matching. Routes matching their served files.   ://
@@ -978,6 +1061,10 @@ const HN2_Rou=function( req , res ){ "use strict"
 
     ,   "HN5_Wri_sob"     : HN5_Wri_sob_AND_end
     ,   "HN7_Run_fap"     : HN7_Run_fap
+
+    ,   "HN8_Run_fap_Ret_jso"
+    :    HN8_Run_fap_Ret_jso //:Return_JSON
+
     };;
 
     //:rar:Request_And_Response:
