@@ -1028,8 +1028,9 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
         nof=( arr[ arr.length-1 ] );
         fnp=( nof.split(".") );
         if( fnp.length >= 2 ){
-
-            //:WORONG YOUSJFLSDFJLSJDFLj
+            //:Can't just use fnp[1] because file
+            //:could possibly look like:
+            //: "my.javascript.file.js"
             ext=( fnp[ fnp.length - 1].toUpperCase() );
         }else{
             ext=("[NONE]");
