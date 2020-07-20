@@ -930,7 +930,7 @@ const HN2_Rou=function( req , res ){ "use strict"
 
     ,   "/GET_NBN" :
         [
-            "/SQL/TAB_001_GET_NEWEST_BY_NAME._"
+            "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
         ,   "HN7_Run_fap"
         ]
 
