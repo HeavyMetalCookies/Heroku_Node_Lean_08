@@ -51,7 +51,7 @@
         
         var cbf=( API_Get_Exa_CBF );
         API_Get_004( 
-            "TAB_001_GET_BY_NAME" 
+            "TAB_001_GET_NBN" 
         ,   {
                 nam: piv_nam
             }
