@@ -37,11 +37,10 @@
     //:      contents.
     const API_Get_Exa_CBF=function( r_t ){
         var msg=(""
-        +   "[API_Get_Exa_CBF:r_t]"
-        +   "<<<"
+        +   "[BEG:JSON_RESPONSE_TEXT:BEG]"
         +   "\n"
         +    Ind_Lin( r_t )
-        +   ">>>"
+        +   "[END:JSON_RESPONSE_TEXT:END]"
         );;
         alert( msg );
     };;
