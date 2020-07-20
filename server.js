@@ -130,6 +130,25 @@ const HN6_Ser_Fil_HTM =function( sob ){ "use strict"
     });;
 };;
 
+const HN8_Ser_Fil_TXT =function( sob ){ "use strict"
+
+    var pof=( sob.dat ); //:pof[ path_of_file (fil_pat) ]
+    
+    fs.readFile( pof,function(obj_err, cof ){
+    "use strict"
+
+        if(obj_err){
+
+            HN5_End_002( sob, "[HN8_E05]");
+        }else{
+
+            var mit=( "text/plain" ); //:MimeType
+            HN5_Wri_Hea_200(sob, { "Content-Type": mit } );
+            HN5_End_003( sob, cof , "utf-8" );
+        };;
+    });;
+};;
+
 const HN5_Cli_End=function( sob ){ "use strict" 
     sob.cli.end();
 };;
@@ -903,6 +922,12 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/JIV.JS"     :[ "./JOSH/IMG_VEW/J._"    , "JS" ]
     ,   "/API_Get_004":[ "./LIB_JFN/API_Get_004" , "JS" ]
 
+        //:View as plain text:
+    ,   "/TX/JOSH_VIEW/"  :[ "./JOSH/IMG_VEW/H._"    , "TX" ]
+    ,   "/TX/JIV.HT/"     :[ "./JOSH/IMG_VEW/H._"    , "TX" ]
+    ,   "/TX/JIV.JS/"     :[ "./JOSH/IMG_VEW/J._"    , "TX" ]
+    ,   "/TX/API_Get_004" :[ "./LIB_JFN/API_Get_004" , "TX" ]
+
         //:M:Matching. Routes matching their served files.   ://
         //:-:This is so we can run files locally or on server://
         //:-:without changing the hard coded script files.   ://
@@ -931,6 +956,7 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "text/javascript" : HN1_Ser_Fil
     ,   "JS"              : HN6_Ser_Fil_JAS
     ,   "HT"              : HN6_Ser_Fil_HTM
+    ,   "TX"              : HN8_Ser_Fil_TXT
     ,   "SQL_GET_TEST"    : HN2_SQL_Get_Tes
     
     ,   "SQL_RUN_C"       : HN4_SQL_Run_C
