@@ -959,14 +959,6 @@ const HN8_Rou_Pri_001=function( sob ){ "use strict"
       
     var     daw = null      ; //:selected:Data_and_Whatever 
 
-    //:rar:Request_And_Response:
-    sob.req =( req     ); //:rar[ 0 ]
-    sob.res =( res     ); //:rar[ 1 ]
-    
-    //:rap:Relativeurl_And_Parameters_of_query
-    sob.url =URL.parse( req.url , true ).pathname //:rap[ 0 ]
-    sob.pam =URL.parse( req.url , true ).query;   //:rap[ 1 ]
-    
     //: daw: Data_And_Whatever
         daw=( tab_daw[ sob.url ] || tab_daw[ "/K" ] );
     sob.dat=( daw[ 0 ] );
@@ -1001,10 +993,30 @@ const HN8_Rou_Pri_001=function( sob ){ "use strict"
 //:__________________________________________________________://
 const HN2_Rou=function( req , res ){ "use strict"
 
-    //:Declare_And_Summarize_All_Function_Variables:
-    var sob     = HN5_NEW_sob(); //:sob:State_Object
+    //:Create[ sob ]and_load_with_some_basics:---------------://
+    //:======================================================://
 
-    HN8_Rou_Pri_001( sob ); //:Priority_01_Routing
+        //:Declare_And_Summarize_All_Function_Variables:
+        var sob     = HN5_NEW_sob(); //:sob:State_Object
+
+        //:rar:Request_And_Response:
+        sob.req =( req     ); //:rar[ 0 ]
+        sob.res =( res     ); //:rar[ 1 ]
+        
+        //:rap:Relativeurl_And_Parameters_of_query
+        sob.url =URL.parse( req.url , true ).pathname //:rap[0]
+        sob.pam =URL.parse( req.url , true ).query;   //:rap[1]
+
+    //:======================================================://
+
+    //:Routing_Logic:
+    //:======================================================://
+
+
+        HN8_Rou_Pri_001( sob ); //:Priority_01_Routing
+
+
+    //:======================================================://
 
 };;
 
