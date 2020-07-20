@@ -995,7 +995,29 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
 
     //:TODO;
     var boo_rou=( 0 );
+    var ffn    =("" ); //:ffn:(First |Fake)Folder_Name
+    var rfn    =("" ); //:rfn:(Routed|Real)Folder_Name
 
+
+    ffn=( sob.url.split("/")[ 0 ] );
+
+    tab_ffn={
+        //:key: Fake_Folder_Name
+        //:val: Real_Folder_Name
+        "NM" : "node_modules"
+    };;
+    
+    rfn=( tab_ffn[ ffn ] );
+
+    if( rfn ){
+        boo_rou=( 1 );
+
+        //:TODO: Actually expose whatever file user
+        //:      is trying to get to.
+        HN5_Wri_002( sob , "[rfn]:(" + rfn + ")" );
+        HN5_End_001( sob );
+
+    };;
 
     return( boo_rou );
 };;
