@@ -78,113 +78,7 @@
     //:  };;                                                 ://
 
 
-//:RT:Routing_Tables:----------------------------------------://
-//:RTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRT://
 
-    var tab_daw = null      ; //:TABle_of:Data_and_Whatever
-    var tab_act = null      ; //:TABle_of:ACTion(s)
-
-    tab_daw={  
-        "/K" : [ "./server.js", "text/plain"      ]
-    ,   "/H" : [ "./htm._"    , "text/html"       ]
-    ,   "/J" : [ "./j_s._"    , "text/javascript" ]
-    ,   "/T" : [ "./sql._"    , "SQL_GET_TEST"    ]
-    
-    ,   "/C"      :[ "./SQL/C._"  , "SQL_RUN_C"   ]
-    ,   "/CRUD_C" :[ "./SQL/C._"  , "SQL_RUN_C"   ]
-                                                
-    ,   "/R"      :[ "./SQL/R._"  , "SQL_RUN_R"   ]
-    ,   "/CRUD_R" :[ "./SQL/R._"  , "SQL_RUN_R"   ]
-                                                
-    ,   "/U"      :[ "./SQL/U._"  , "SQL_RUN_U"   ]
-    ,   "/CRUD_U" :[ "./SQL/U._"  , "SQL_RUN_U"   ]
-                                                
-    ,   "/D"      :[ "./SQL/D._"  , "SQL_RUN_D"   ]
-    ,   "/CRUD_D" :[ "./SQL/D._"  , "SQL_RUN_D"   ]
-    
-    ,   "/S"      :[ "IGNORED"    , "HN5_Wri_sob" ]
-
-    ,   "/JQ"     :[ "./node_modules/jquery/dist/jquery.js" 
-                   , "JS" ]
-
-    ,   "/JOSH.HT":[ "./JOSH/JOSH.HTM"                      
-                   , "HT" ]
-    
-    ,   "/JOSH.JS":[ "./JOSH/JOSH.JS"                       
-                   , "JS" ]
-
-    ,   "/WHO_AMI":[ "./WHO_AMI._" , "JS" ]
-
-    ,   "/TAB_001_UPDATE"
-        :[ "./SQL/TAB_001_UPDATE._" , "HN7_Run_fap" ]
-
-    ,   "/JOSH_VIEW"      :[ "./JOSH/IMG_VEW/H._"      , "HT" ]
-    ,   "/JIV.HT"         :[ "./JOSH/IMG_VEW/H._"      , "HT" ]
-    ,   "/JIV.JS"         :[ "./JOSH/IMG_VEW/J._"      , "JS" ]
-    ,   "/API_Get_004"    :[ "./LIB_JFN/API_Get_004._" , "JS" ]
-
-        //:View as plain text:
-    ,   "/TX/JOSH_VIEW"   :[ "./JOSH/IMG_VEW/H._"      , "TX" ]
-    ,   "/TX/JIV.HT"      :[ "./JOSH/IMG_VEW/H._"      , "TX" ]
-    ,   "/TX/JIV.JS"      :[ "./JOSH/IMG_VEW/J._"      , "TX" ]
-    ,   "/TX/API_Get_004" :[ "./LIB_JFN/API_Get_004._" , "TX" ]
-
-    ,   "/GET_NBN" :
-        [
-            "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
-        ,   "HN8_Run_fap_Ret_jso"
-        ]
-
-    ,   "/TAB_001_GET_NBN" :
-        [
-            "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
-        ,   "HN8_Run_fap_Ret_jso"
-        ]
-
-        //:M:Matching. Routes matching their served files.   ://
-        //:-:This is so we can run files locally or on server://
-        //:-:without changing the hard coded script files.   ://
-        //:MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM://
-
-        //: This hack is not going to work because
-        //: "." and ".." are not going to be allowed in URLS.
-        //: Leave this for reference so you don't try to do
-        //: this again.
-
-        //:  ,  "./node_modules/jquery/dist/jquery.js":
-        //:    ["./node_modules/jquery/dist/jquery.js","JS"]
-        //:  
-        //:  ,  "./JOSH/JOSH.HTM":
-        //:    ["./JOSH/JOSH.HTM","HT"]
-        //:  
-        //:  ,  "./JOSH/JOSH.JS":
-        //:    ["./JOSH/JOSH.JS","JS"]
-
-        //:MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM://
-                
-    };;
-    tab_act={ 
-        "text/plain"      : HN1_Ser_Fil
-    ,   "text/html"       : HN1_Ser_Fil
-    ,   "text/javascript" : HN1_Ser_Fil
-    ,   "JS"              : HN6_Ser_Fil_JAS
-    ,   "HT"              : HN6_Ser_Fil_HTM
-    ,   "TX"              : HN8_Ser_Fil_TXT
-    ,   "SQL_GET_TEST"    : HN2_SQL_Get_Tes
-    
-    ,   "SQL_RUN_C"       : HN4_SQL_Run_C
-    ,   "SQL_RUN_R"       : HN4_SQL_Run_R
-    ,   "SQL_RUN_U"       : HN4_SQL_Run_U
-    ,   "SQL_RUN_D"       : HN4_SQL_Run_D
-
-    ,   "HN5_Wri_sob"     : HN5_Wri_sob_AND_end
-    ,   "HN7_Run_fap"     : HN7_Run_fap
-
-    ,   "HN8_Run_fap_Ret_jso"
-    :    HN8_Run_fap_Ret_jso //:Return_JSON
-
-    };;
-//:RTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRT://
 
 //://////////////////////////////////////////////////////////://
 
@@ -1118,6 +1012,123 @@ const HN1_Mai=function(){ "use strict"
     http.createServer( HN2_Rou ).listen(POR);
 
 };;
+
+//:RT:Routing_Tables:----------------------------------------://
+//:RTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRT://
+//:                                                          ://
+//: Because they reference functions in the code, this needs ://
+//: to come after all function declarations. This table kind ://
+//: of wrecks my declaration rule of [ data_then_funcs ]...  ://
+//: Probably should think of a better way to do this.        ://
+//:                                                          ://
+//:RTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRT://
+
+    var tab_daw = null      ; //:TABle_of:Data_and_Whatever
+    var tab_act = null      ; //:TABle_of:ACTion(s)
+
+    tab_daw={  
+        "/K" : [ "./server.js", "text/plain"      ]
+    ,   "/H" : [ "./htm._"    , "text/html"       ]
+    ,   "/J" : [ "./j_s._"    , "text/javascript" ]
+    ,   "/T" : [ "./sql._"    , "SQL_GET_TEST"    ]
+    
+    ,   "/C"      :[ "./SQL/C._"  , "SQL_RUN_C"   ]
+    ,   "/CRUD_C" :[ "./SQL/C._"  , "SQL_RUN_C"   ]
+                                                
+    ,   "/R"      :[ "./SQL/R._"  , "SQL_RUN_R"   ]
+    ,   "/CRUD_R" :[ "./SQL/R._"  , "SQL_RUN_R"   ]
+                                                
+    ,   "/U"      :[ "./SQL/U._"  , "SQL_RUN_U"   ]
+    ,   "/CRUD_U" :[ "./SQL/U._"  , "SQL_RUN_U"   ]
+                                                
+    ,   "/D"      :[ "./SQL/D._"  , "SQL_RUN_D"   ]
+    ,   "/CRUD_D" :[ "./SQL/D._"  , "SQL_RUN_D"   ]
+    
+    ,   "/S"      :[ "IGNORED"    , "HN5_Wri_sob" ]
+
+    ,   "/JQ"     :[ "./node_modules/jquery/dist/jquery.js" 
+                   , "JS" ]
+
+    ,   "/JOSH.HT":[ "./JOSH/JOSH.HTM"                      
+                   , "HT" ]
+    
+    ,   "/JOSH.JS":[ "./JOSH/JOSH.JS"                       
+                   , "JS" ]
+
+    ,   "/WHO_AMI":[ "./WHO_AMI._" , "JS" ]
+
+    ,   "/TAB_001_UPDATE"
+        :[ "./SQL/TAB_001_UPDATE._" , "HN7_Run_fap" ]
+
+    ,   "/JOSH_VIEW"      :[ "./JOSH/IMG_VEW/H._"      , "HT" ]
+    ,   "/JIV.HT"         :[ "./JOSH/IMG_VEW/H._"      , "HT" ]
+    ,   "/JIV.JS"         :[ "./JOSH/IMG_VEW/J._"      , "JS" ]
+    ,   "/API_Get_004"    :[ "./LIB_JFN/API_Get_004._" , "JS" ]
+
+        //:View as plain text:
+    ,   "/TX/JOSH_VIEW"   :[ "./JOSH/IMG_VEW/H._"      , "TX" ]
+    ,   "/TX/JIV.HT"      :[ "./JOSH/IMG_VEW/H._"      , "TX" ]
+    ,   "/TX/JIV.JS"      :[ "./JOSH/IMG_VEW/J._"      , "TX" ]
+    ,   "/TX/API_Get_004" :[ "./LIB_JFN/API_Get_004._" , "TX" ]
+
+    ,   "/GET_NBN" :
+        [
+            "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
+        ,   "HN8_Run_fap_Ret_jso"
+        ]
+
+    ,   "/TAB_001_GET_NBN" :
+        [
+            "./SQL/TAB_001_GET_NEWEST_BY_NAME._"
+        ,   "HN8_Run_fap_Ret_jso"
+        ]
+
+        //:M:Matching. Routes matching their served files.   ://
+        //:-:This is so we can run files locally or on server://
+        //:-:without changing the hard coded script files.   ://
+        //:MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM://
+
+        //: This hack is not going to work because
+        //: "." and ".." are not going to be allowed in URLS.
+        //: Leave this for reference so you don't try to do
+        //: this again.
+
+        //:  ,  "./node_modules/jquery/dist/jquery.js":
+        //:    ["./node_modules/jquery/dist/jquery.js","JS"]
+        //:  
+        //:  ,  "./JOSH/JOSH.HTM":
+        //:    ["./JOSH/JOSH.HTM","HT"]
+        //:  
+        //:  ,  "./JOSH/JOSH.JS":
+        //:    ["./JOSH/JOSH.JS","JS"]
+
+        //:MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM://
+                
+    };;
+    tab_act={ 
+        "text/plain"      : HN1_Ser_Fil
+    ,   "text/html"       : HN1_Ser_Fil
+    ,   "text/javascript" : HN1_Ser_Fil
+    ,   "JS"              : HN6_Ser_Fil_JAS
+    ,   "HT"              : HN6_Ser_Fil_HTM
+    ,   "TX"              : HN8_Ser_Fil_TXT
+    ,   "SQL_GET_TEST"    : HN2_SQL_Get_Tes
+    
+    ,   "SQL_RUN_C"       : HN4_SQL_Run_C
+    ,   "SQL_RUN_R"       : HN4_SQL_Run_R
+    ,   "SQL_RUN_U"       : HN4_SQL_Run_U
+    ,   "SQL_RUN_D"       : HN4_SQL_Run_D
+
+    ,   "HN5_Wri_sob"     : HN5_Wri_sob_AND_end
+    ,   "HN7_Run_fap"     : HN7_Run_fap
+
+    ,   "HN8_Run_fap_Ret_jso"
+    :    HN8_Run_fap_Ret_jso //:Return_JSON
+
+    };;
+//:RTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRTRT://
+
+
 HN1_Mai();
 
 /**-*********************************************************-**
