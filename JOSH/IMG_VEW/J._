@@ -40,6 +40,7 @@
         +   "[BEG:JSON_RESPONSE_TEXT:BEG]"
         +   "\n"
         +    Ind_Lin( r_t )
+        +   "\n"
         +   "[END:JSON_RESPONSE_TEXT:END]"
         );;
         alert( msg );
