@@ -876,7 +876,7 @@ const HN8_Run_fap_Ret_jso=function( sob ){ "use strict"
                 HN5_End_003( sob, ros.rows[0] , "utf-8" );
             
             }else
-            if( ros.rows && (ros.rows.length > 1 ){
+            if( ros.rows && (ros.rows.length > 1 ) ){
                 HN5_End_002( sob, "[HN8:MORE_THAN_ONE_ROW]" );
             }else{
                 HN5_End_002( sob, "[HN8:NOTHING_TO_RETURN]" );
