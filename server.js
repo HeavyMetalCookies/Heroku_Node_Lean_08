@@ -1001,6 +1001,8 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
     var arr    =[   ]; //:array
     var dat    =""   ; //:Data.
     var ext    =""   ; //:file_extension
+    var nof    =""   ; //:name_of_file
+    var fnp    =[   ]; //:file_name_parts
 
     arr=( sob.url.split("/") );
     arr=arr.filter( (wor)=>{ return(!!wor); } );
@@ -1022,9 +1024,17 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
         dat=( arr.join( "/" ) );
         dat=( "./" + dat );
        
+        //:Derive file name extension:
+        nof=( arr[ arr.length-1 ] );
+        fnp=( nof.split(".") );
+        if( fnp.length >= 2 ){
 
-        ext=( arr[ arr.length-1 ].toUpperCase() );
-        if( ".JS" == ext ){
+            ext=( fnp[1].toUpperCase() );
+        }else{
+            ext=("[NONE]");
+        };;
+     
+        if( "JS" == ext ){
 
             sob.dat=( dat ); 
             HN6_Ser_Fil_JAS( sob );
