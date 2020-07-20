@@ -955,23 +955,59 @@ const HN8_Chk_dat_wha=function( sob ){ "use strict"
 };;
 
 
-const HN8_Rou_Pri_001=function( sob ){ "use strict"
+const HN8_Rou_Ord_001=function( sob ){ "use strict"
       
     var     daw = null      ; //:selected:Data_and_Whatever 
+    var boo_rou =( 0 )      ; //:Boolean_ROUte(was_route_found)
 
     //: daw: Data_And_Whatever
-        daw=( tab_daw[ sob.url ] || tab_daw[ "/K" ] );
-    sob.dat=( daw[ 0 ] );
-    sob.wha=( daw[ 1 ] );
+        daw=( tab_daw[ sob.url ] );
 
-    HN8_Chk_dat_wha( sob ); //:Error_Check
+    if( daw ){
 
-    //: act: Action to take function.
-    sob.act=( tab_act[ sob.wha ] );
+        sob.dat=( daw[ 0 ] );
+        sob.wha=( daw[ 1 ] );
 
-    //:Call action function:
-    sob.act( sob );
+        HN8_Chk_dat_wha( sob ); //:Error_Check
 
+        //: act: Action to take function.
+        sob.act=( tab_act[ sob.wha ] );
+
+        //:Call action function:
+        sob.act( sob );
+
+        boo_rou=( 1 );
+    }else
+    if( !daw ){
+        boo_rou=( 0 );
+    }else{
+
+        throw("[HN8_ERR:EDCL]");
+
+    };;
+
+
+    return( boo_rou );
+
+};;
+
+const HN8_Rou_Ord_002=function( sob ){ "use strict"
+
+    //:TODO;
+    var boo_rou=( 0 );
+
+
+    return( boo_rou );
+};;
+
+const HN8_Rou_Ord_003=function( sob ){ "use strict"
+
+    //:This route is always found. It is the default.
+    var boo_rou=( 1 );
+
+        HN5_Wri_002( sob , "[HN8:DEFAULT_ROUTE]" );
+
+    return( boo_rou );
 };;
 
 //://////////////////////////////////////////////////////////://
@@ -1012,9 +1048,22 @@ const HN2_Rou=function( req , res ){ "use strict"
     //:Routing_Logic:
     //:======================================================://
 
+        //: We route from highest priority routing function
+        //: to lowest priority routing function.
 
-        HN8_Rou_Pri_001( sob ); //:Priority_01_Routing
+        var boo_rou=( 0 );
 
+        if( boo_rou <= 0 ){
+            boo_rou=HN8_Rou_Ord_001( sob );  
+        };;
+
+        if( boo_rou <= 0 ){
+            boo_rou=HN8_Rou_Ord_002( sob );
+        };;
+
+        if( boo_rou <= 0 ){
+            boo_rou=HN8_Rou_Ord_003( sob );
+        };;
 
     //:======================================================://
 
