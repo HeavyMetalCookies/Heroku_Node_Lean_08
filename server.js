@@ -994,7 +994,8 @@ const HN8_Rou_Ord_001=function( sob ){ "use strict"
 const HN8_Rou_Ord_002=function( sob ){ "use strict"
 
     //:TODO;
-    var boo_rou=( 0 );
+    var tab_ffn=null ; //:table_of_ffn_to_rfn
+    var boo_rou=( 0 ); //:boolean_route(was_route_found?)
     var ffn    =("" ); //:ffn:(First |Fake)Folder_Name
     var rfn    =("" ); //:rfn:(Routed|Real)Folder_Name
 
