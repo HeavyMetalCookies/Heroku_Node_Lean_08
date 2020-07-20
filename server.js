@@ -851,7 +851,19 @@ const HN2_Rou=function( req , res ){ "use strict"
     var tab_daw = null      ; //:TABle_of:Data_and_Whatever
     var tab_act = null      ; //:TABle_of:ACTion(s)
     var     daw = null      ; //:selected:Data_and_Whatever 
-             
+           
+    //:  I am not sure this extra level of indirection       ://
+    //:  would be helpful. I think it would just make        ://
+    //:  it harder to hunt down served files.                ://
+    //:                                                      ://
+    //:  //:TABle_of_SYNonyms                                ://
+    //:  tab_syn={                                           ://
+    //:                                                      ://
+    //:      //:Synonym_Entry  , Resolves_To_Key_In:tab_daw  ://
+    //:      "/JIV.HT.SYNONYM" , "/JIV.HT"                   ://
+    //:                                                      ://
+    //:  };;                                                 ://
+
     tab_daw={  
         "/K" : [ "./server.js", "text/plain"      ]
     ,   "/H" : [ "./htm._"    , "text/html"       ]
