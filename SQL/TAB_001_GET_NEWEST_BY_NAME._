@@ -1,0 +1,6 @@
+SELECT * FROM tab_001
+  WHERE nam = {{nam}}
+  ORDER BY iid DESC
+  LIMIT 1 
+;;
+

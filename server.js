@@ -928,6 +928,12 @@ const HN2_Rou=function( req , res ){ "use strict"
     ,   "/TX/JIV.JS"      :[ "./JOSH/IMG_VEW/J._"      , "TX" ]
     ,   "/TX/API_Get_004" :[ "./LIB_JFN/API_Get_004._" , "TX" ]
 
+    ,   "GET_NBN" :
+        [
+            "/SQL/TAB_001_GET_NEWEST_BY_NAME._"
+        ,   "HN7_Run_fap"
+        ]
+
         //:M:Matching. Routes matching their served files.   ://
         //:-:This is so we can run files locally or on server://
         //:-:without changing the hard coded script files.   ://
