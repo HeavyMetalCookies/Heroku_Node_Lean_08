@@ -999,6 +999,7 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
     var ffn    =("" ); //:ffn:(First |Fake)Folder_Name
     var rfn    =("" ); //:rfn:(Routed|Real)Folder_Name
     var arr    =[   ]; //:array
+    var dat    =""   ; //:Data.
 
     arr=( sob.url.split("/") );
     arr=arr.filter( (wor)=>{ return(!!wor); } );
@@ -1015,9 +1016,16 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
     if( rfn ){
         boo_rou=( 1 );
 
+        //:Create path to serve:
+        arr[ 0 ]=( ffn );
+        dat=( arr.join( "/" ) );
+        dat=( "./" + dat );
+        sob.dat=( dat );
+
         //:TODO: Actually expose whatever file user
         //:      is trying to get to.
         HN5_Wri_002( sob , "[rfn]:(" + rfn + ")" );
+        HN5_Wri_002( sob , "[dat]:(" + dat + ")" );
         HN5_End_001( sob );
 
     };;
