@@ -1000,6 +1000,7 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
     var rfn    =("" ); //:rfn:(Routed|Real)Folder_Name
     var arr    =[   ]; //:array
     var dat    =""   ; //:Data.
+    var ext    =""   ; //:file_extension
 
     arr=( sob.url.split("/") );
     arr=arr.filter( (wor)=>{ return(!!wor); } );
@@ -1020,13 +1021,23 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
         arr[ 0 ]=( rfn ); //:Swap_Alias_For_Real_Folder_Name
         dat=( arr.join( "/" ) );
         dat=( "./" + dat );
-        sob.dat=( dat );
+       
 
-        //:TODO: Actually expose whatever file user
-        //:      is trying to get to.
-        HN5_Wri_002( sob , "[rfn]:(" + rfn + ")" );
-        HN5_Wri_002( sob , "[dat]:(" + dat + ")" );
-        HN5_End_001( sob );
+        ext=( arr[ arr.length-1 ].toUpperCase() );
+        if( ".JS" == ext ){
+
+            sob.dat=( dat ); 
+            HN6_Ser_Fil_JAS( sob );
+
+        }else{
+            //:Some debug info if the file extension
+            //:is not white listed to be served.
+            
+            HN5_Wri_002( sob , "[rfn]:(" + rfn + ")" );
+            HN5_Wri_002( sob , "[dat]:(" + dat + ")" );
+            HN5_End_001( sob );
+
+        };;
 
     };;
 
