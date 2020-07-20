@@ -998,9 +998,11 @@ const HN8_Rou_Ord_002=function( sob ){ "use strict"
     var boo_rou=( 0 ); //:boolean_route(was_route_found?)
     var ffn    =("" ); //:ffn:(First |Fake)Folder_Name
     var rfn    =("" ); //:rfn:(Routed|Real)Folder_Name
+    var arr    =[   ]; //:array
 
-
-    ffn=( sob.url.split("/")[ 0 ] );
+    arr=( sob.url.split("/")[ 0 ] );
+    arr=arr.filter( (wor)=>{ return(!!wor); } );
+    ffn=( arr[ 0 ] );
 
     tab_ffn={
         //:key: Fake_Folder_Name
