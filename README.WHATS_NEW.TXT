@@ -25,13 +25,20 @@
             2nd Priority Routing: HN8_Rou_Ord_002
         
             TRY:
-            https://PRJ_NAM.herokuapp.com/NM/pngjs/lib/packer.js
+            https://PRJ_NAM.herokuapp.com/NM/jquery/src/ajax.js
 
-        3. pngjs library has been added, but we are not 
-           going to work with it in this addition. But we
-           are going to EXPOSE the library to file serving
-           logic so that we can do PNG processing on the
-           client side instead of server side.
+       [3]. [ pako ] library has been added. Which is a zlib
+            library we will need for decompressing .png
+            data into a byte array later. [ pngjs ] will NOT
+            work on the client side without serious heavy
+            modification, so this seems to be the easiest
+            route.
+
+            EDIT: Pako is using "require" keyword all over
+            the place. Not exactly client friendly... But
+            looks like the zero dependency thing was true.
+
+            Might not use this. Keep for now I guess?
 
     //://////////////////////////////////////////////////////://
 
